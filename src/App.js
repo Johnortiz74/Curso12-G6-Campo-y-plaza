@@ -4,6 +4,7 @@ import Login from "./componentes/Login";
 import CrearCuenta from "./componentes/CrearCuenta";
 import Admin from './componentes/Admin';
 import Home from './componentes/Home';
+import CrearCategoria from './componentes/CrearCategoria';
 
 
 function App(){
@@ -14,6 +15,7 @@ function App(){
         <Route path="/login" exact element= {<Login/>}/>
         <Route path="/crear-cuenta" exact element= {<CrearCuenta/>}/>
         <Route path="/admin" exact element= {<Admin/>}/>
+        <Route path="/crear-categoria" exact element= {<CrearCategoria/>}/>
       </Routes>
     </Router>
   );
