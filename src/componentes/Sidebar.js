@@ -8,11 +8,14 @@ const Sidebar = () => {
             
             
              <Link
-                className="bg-violet-600 w-full p-3 text-white uppercase font-bold mt-5 text-center rounded-lg"
+                className="bg-green-600 w-full p-3 text-white uppercase font-bold mt-5 text-center rounded-lg"
                 to={"/crear-categoria"}
             >
-        Crear Categoria
+        Crear categoría
       </Link>
+
+
+  
 
 
       

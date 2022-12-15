@@ -25,9 +25,9 @@ const CrearCuenta = () => {
   };
 
   const crearCuenta = async () =>{
-    // los dos password deben ser iguales
+    // validación los dos password deben ser iguales
     if(password !== confirmar){
-      console.log('diferntes');
+      console.log('diferentes');
       const mensaje = "Las contraseñas son diferentes.";
       swal({
         title:'Error',
@@ -115,8 +115,8 @@ const CrearCuenta = () => {
   return (
       <main className='container mx-auto mt-5 md:mt-20 p-5 md:flex md:justify-center'>
       <div className='md:w-2/3 lg:w-2/5'>
-      <h1 className="inline bg-gradient-to-r from-indigo-200 via-violet-700 to-indigo-200 bg-clip-text font-display text-5xl tracking-tight text-transparent">
-         G12 Iniciar sesión Ecommerce 3
+      <h1 className="inline bg-gradient-to-r from-indigo-200 via-green-700 to-indigo-200 bg-clip-text font-display text-5xl tracking-tight text-transparent">
+         CAMPO Y PLAZA
        </h1>
         <form 
           className="my-10 bg-white shadow rounded-lg p-10"
@@ -129,7 +129,7 @@ const CrearCuenta = () => {
            type="nombre"
            id="nombre"
            name="nombre"
-           placeholder="Ingrese su nombre"
+           placeholder="Ingrese su nombre de usuario"
            className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
            value={nombre}
            onChange={onChange}
@@ -139,7 +139,7 @@ const CrearCuenta = () => {
            type="email"
            id="email"
            name="email"
-           placeholder="Email de Registro"
+           placeholder="Escriba su correo electrónico"
            className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
            value={email}
            onChange={onChange}
@@ -152,18 +152,18 @@ const CrearCuenta = () => {
            type="password"
            id="password"
            name="password"
-           placeholder="Password de Registro"
+           placeholder="Escriba su clave"
            className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
            value={password}
            onChange={onChange}
            />
            
-           <label className="uppercase text-gray-600 block text-lx font-bold">Confirme su Password</label>
+           <label className="uppercase text-gray-600 block text-lx font-bold">Confirme su password</label>
            <input 
            type="confirmar"
            id="confirmar"
            name="confirmar"
-           placeholder="Confirmación Password"
+           placeholder="Escriba nuevamente su clave para confirmarla"
            className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
            value={confirmar}
            onChange={onChange}
@@ -171,15 +171,15 @@ const CrearCuenta = () => {
          </div>
          <input 
              type="submit"
-             value="Registar Usuario"
-             className="bg-violet-600 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-violet-300 transition-colors"
+             value="Crear cuenta" //registrar usuario
+             className="bg-green-700 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-green-300 transition-colors"
                />
    
          <Link
            className="block text-center my-5 "
          to={"/"}
          >
-           Regresar
+           Regresar a INICIAR SESIÓN
          </Link>
      </form>
    
