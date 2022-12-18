@@ -11,12 +11,18 @@ const Sidebar = () => {
                 className="bg-green-600 w-full p-3 text-white uppercase font-bold mt-5 text-center rounded-lg"
                 to={"/crear-categoria"}
             >
-        Crear categoría
+        Crear categoria
       </Link>
 
+      <div className="py-10">
+      <Link
+                className="bg-green-600 w-full p-3 text-white uppercase font-bold mt-5 text-center rounded-lg"
+                to={"/admin"}
+            >
+        Adm. categorias
+      </Link>
 
-  
-
+      </div>
 
       
       

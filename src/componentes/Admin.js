@@ -36,39 +36,42 @@ const Admin = () => {
 
 
   const borrarCategoria = async (e, idCategoria) => {
-    e.preventDefault();
-    const response = await crud.DELETE(`/api/categorias/${idCategoria}`);
-    console.log(response.msg);
-    const mensaje = response.msg;
-    if(mensaje ==="categoria eliminada" ){
-      
-      swal({
-        title:'Error',
-        text: mensaje,
-        icon: 'error',
-        buttons:{
-          confirm:{
-            text: 'OK',
-            value: true,
-            visible: true,
-            className: 'btn btn-danger',
-            closeModal: true
-          }
+    swal({
+      title: "¿Esta seguro de eliminar esta categoria?",
+      text: "Advertencia: una vez eliminada no podra recuperar esta categoria.",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        e.preventDefault();
+        const response = crud.DELETE(`/api/categorias/${idCategoria}`);
+        //console.log(response.msg);
+        const mensaje = response.msg;
+        if(response){
+          swal("La categoria a sido eliminada correctamente.", {
+            icon: "success",
+          });
         }
-        
-      });
-    
-    }
+        cargarCategorias();
+      } else {
+        swal("La acción ha sido cancelada.");
+      }
+    });
    
-    window.location.reload();
   }
 
 
   const actualizarCategoria = async ( idCategoria) =>{
     
-    const response = await crud.PUT(`/api/categorias/${idCategoria}`);
+    navigate(`/actualizar-categoria/${idCategoria}`)
 
   }  
+
+  const crearProductos = async (idCategoria) =>{
+    navigate(`/home-productos/${idCategoria}`);
+  }
 
   return (
     <>
@@ -81,16 +84,16 @@ const Admin = () => {
         </h1>
     <div>
       <table>
-        <thead className="bg-green-200">
+        <thead className="bg-white">
           <tr>
             <th>Imagen</th>
             <th>Nombre</th>
             <th>ID</th>
-            <th>Opciones</th>
+            <th>Opciónes</th>
           </tr>
         </thead>
 
-        <tbody className="bg-green-100">
+        <tbody className="bg-white">
           {
             categoria.map(
               item => 
@@ -108,14 +111,14 @@ const Admin = () => {
              <input 
                 type="submit"
                 value="Actualizar"
-                className="bg-green-500 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-green-300 transition-colors"
-                onClick={actualizarCategoria(item._id)}
+                className="bg-green-600 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-green-300 transition-colors"
+                onClick={(e) => actualizarCategoria(item._id)}
             />
              <input 
                 type="submit"
                 value="Crear Producto"
-                className="bg-green-400 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-green-300 transition-colors"
-               
+                className="bg-green-600 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-green-300 transition-colors"
+                onClick={(e) => crearProductos(item._id)}
             />
                 </td>
               </tr>
